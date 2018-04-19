@@ -1,17 +1,30 @@
 #include "gc.h"
 #include "node.h"
 #include <iostream>
-#include <assert.h>
 
 using namespace std;
 
-int main(){
+bool test_MemoryLeakLoop() {
 	for (int i = 0; i < 100; i++) {
-		Node *n = new Node(10);		
-		if (i%10 == 0) 
-			assert(GarbageCollector::GC.live() == 1);
+		Node *n = new Node();		
+		if (i%10 == 0) { 
+			if (GarbageCollector::GC.live() != 1)
+				return false;
+		}
 		GarbageCollector::GC.collect();
 	}
-	cout << "Pass\n";
+	return true;
+}
+
+int main(){
+	cout << "test_MemoryLeakLoop: "; 
+	if (test_MemoryLeakLoop())
+		cout << "pass\n";
+	else
+		cout << "fail\n";
+
+	// add more tests
+	// use an actual testing framework
+
 	return 0;
 }
