@@ -9,17 +9,18 @@ INCLUDE=
 LIB=
 CFLAGS=-g
 
-all: libgc.a  
+all: libGC.a 
 
-loop: gc.o
-	g++ loop.c gc.o -o andrew 
+test: libGC.a node.h
+	g++ test_simple.cpp node.h -o simple_test -L. -lGC
 
-libgc.a: gc.o
-	ar r libgc.a gc.o
+libGC.a: gc.o
+	ar r libGC.a gc.o
 
 gc.o: gc.cpp gc.h
 	g++ $(INCLUDE) $(CFLAGS) -c -o gc.o gc.cpp
 
 clean: 
-	rm gc.o
-	rm libgc.a
+	rm *.o
+	rm simple_test
+	rm libGC.a
