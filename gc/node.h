@@ -4,6 +4,9 @@
 #include "gc.h"
 
 class Node : public GCObject  {
+	/**
+	24 bytes
+	**/
 	public:
 		int value;
 		Node *next;
