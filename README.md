@@ -4,6 +4,13 @@ Andy Chen, Andrew Huang
 ## Project Vision: ##
 C++ does not have an internal garbage collector; however, many programmers have taken the initiative to implement one. Most of these are basic garbage collectors that is prone to errors and does not scale. Our goal is to implemented researched techniques improving the functionality and speed of the basic garbage collectors. We will do this by starting with a baseline garbage collector and continually testing and improving the code. 
 
+## Outline Workflow (tentative):
+* Decide on GC API
+* Decide on GC technique
+* Implement GC technique
+* Profile GC 
+* Improve GC technique & compare with baseline
+
 ## Outline Schedule for Project Execution (Tentative): ##
 
 Week 4/21 - 4/27
