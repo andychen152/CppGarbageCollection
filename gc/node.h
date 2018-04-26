@@ -15,4 +15,16 @@ class Node : public GCObject  {
 		Node (int v) { value = v; next = 0; }
 };
 
+class BigNode : public GCObject  {
+	/**
+	400024 bytes
+	**/
+	public:
+		int value[100000];
+		BigNode *next;
+
+		BigNode () { next = 0; }
+		BigNode (int v) { value[0] = v; next = 0; }
+};
+
 #endif

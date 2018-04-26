@@ -1,8 +1,8 @@
 #include "../gc.h"
 #include "../node.h"
-#include "../BigNode.h"
 #include <cassert>
 #include <iostream>
+#include <cstdlib>
 
 
 bool test1() {
@@ -127,6 +127,7 @@ bool test7() {
 	Node *n = new Node();
 	GarbageCollector::GC.collect();
 	assert (GarbageCollector::GC.live() == 1);
+	std::cout << n->value << std::endl;
 	return true;
 
 }
